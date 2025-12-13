@@ -2294,6 +2294,7 @@
 			<!-- Menu Button
 			==================================================================================================== -->
 			<a href='javascript:;' class='goodTube_menuButton'>
+				<div class='goodTube_notice'>GoodTube<br>UPDATE</div>
 				<img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAZCAYAAABQDyyRAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjZBOUIxQTYzNDc0QjExRjA4OTZDRTk5QkFDRDUyNkFCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjZBOUIxQTY0NDc0QjExRjA4OTZDRTk5QkFDRDUyNkFCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NkE5QjFBNjE0NzRCMTFGMDg5NkNFOTlCQUNENTI2QUIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NkE5QjFBNjI0NzRCMTFGMDg5NkNFOTlCQUNENTI2QUIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7jrX2zAAADr0lEQVR42qRWzW4TMRCe2W4QFyqkvkARyqFQCXU3W4S48gDwClXzxwM1TVJehRMcaLKukIBeSlW1EufCoRTlZ/B41+txNgktdRRls2OP5/vmm7GRiECOYb2Zv0D9Jaj1uwh3GKrZBhIeo17HswfyT9poU+1tGzbevIYgwDtvzkNvTgaJfppMxjRrD0SkhLzddArnHz7CLDP/O+JeBzGHkWhwSoNkoNYeGuRRnR43XsHDFxsA45EJm1cN6y0zsdbfRzvPeovSHt6ChTwBABPtPwgr4AXATun0TD/8MhM31tcB9FcpBVG3g2WHZXZU3CheyuAYbbVahYuLc4Dra0h2dkwsadSgWPUwtBE6p8QRzUWCiP9ASgVStwZgdfUBPN3cBPjyFaTABQO+o+Nvx3B1dWXy5yd0hVU8NwqLOm20PHqYwewdQhxHBUgLJrSLOb9n70+Balt6atVMYlolnZTrQLIxnZLnFGuhFxhTjckTzc4P+HmpS+Ly0rOHkl6mEJfk2hInU8HlKkVGQKUUANzXD4/g5PsEMD0xfmPVNxac3cSI6XkCNB7nnUkVG/LUuJn43gk87ajuoQhc2zWjBWPa12z14DxFM23GmOjFwyOIGttOW5zHorWh29y6UUeZ3QYTbxUg5pWuC6DbJ4cqe0y7A909tvSeoUPLiMhuTi4xNoD0qFB4mo4BGXVzG2Z9Q7OOngb8ruHKBOVCsymKShObSzbsM8r3YvOSCHsHZB2rdCRkRLKV5QiV+O8CdVFhQQzmQk7V2B1GcSWz856NXd2IDPUIg4FukQH37jZKQRIJBkgExVqQlDL1CI4pcvUQd9uiM3ZIHzeQJBWT9uws0KiTAzcJugdFUtnX4HBk/G5vux4Oh4Psd22tJMQ/v6eCQAQLEpq7aAFyIHEcao009khGKMXI6eAqgFqU9Qh0EimEaZENRzO1r+cOlFkb1yol8Zk1zQ4Fcxq+O8jJ14KXbVsVBMXpCQieQIt3pbJdVoZ6hVKjvI+3kU8zTCdFZ8QkKonZdlEzPg2L8sSX9yDa66DSSI2/qOJgLCpD1kMhRB0U4jNNoxVTC1mYONOmuYEjTY3v6PM7VK39zDwJjI+o6+d97lng17fXGECesmTpFpOzbASAgeslaOwsxpVyimluAARAi65VTqT2EFk2JOJS3mcPuKV3P12Oaa4HRhTpFNzkCpbmOWdAhnKh/IWX0gV3HODUeg3oBgPzD9wg3HCpVUdeg/6tr8cR9wgo1/288VeAAQAP+uu2vDbm2wAAAABJRU5ErkJggg%3D%3D'>
 			</a> <!-- .goodTube_menuButton -->
 			<a href='javascript:;' class='goodTube_menuClose'>&#10006;</a>
@@ -2306,6 +2307,99 @@
 
 				<div class='goodTube_modal_inner'>
 					<a class='goodTube_modal_closeButton' href='javascript:;'>&#10006;</a>
+
+
+					<div class='goodTube_title'>
+						IMPORTANT UPDATE -<br>
+						🎉 GoodTube is now an official browser extension!!
+					</div>
+					<div class='goodTube_content'>
+						<div class="goodTube_text">
+							<div class='goodTube_modal_faq' data-open='false'>
+								<div class='goodTube_modal_question'>
+									<div class='goodTube_modal_question_text'>Support for this version of GoodTube will end Jan 1st, 2026</div>
+									<div class='goodTube_modal_question_arrow'></div>
+								</div>
+								<div class='goodTube_modal_answer'>
+									<div class='goodTube_modal_answerInner'>
+										Please change over to using the official extension before support ends. Don't forget to remove this old version once you've swapped over.
+									</div>
+								</div>
+							</div>
+
+							<div class='goodTube_modal_faq' data-open='false'>
+								<div class='goodTube_modal_question'>
+									<div class='goodTube_modal_question_text'>Does the extension remove the floating settings menu icon?</div>
+									<div class='goodTube_modal_question_arrow'></div>
+								</div>
+								<div class='goodTube_modal_answer'>
+									<div class='goodTube_modal_answerInner'>
+										Yes it does! Making this an extension allows me to use a normal extension menu (hidden until you click on it at the top of your browser).<br>
+										<br>
+										With this older version, unfortunately I have no other way to provide a settings menu. Sorry it's been so annoying having it down the bottom all the time!
+									</div>
+								</div>
+							</div>
+
+							<div class='goodTube_modal_faq' data-open='false'>
+								<div class='goodTube_modal_question'>
+									<div class='goodTube_modal_question_text'>What are the new features?</div>
+									<div class='goodTube_modal_question_arrow'></div>
+								</div>
+								<div class='goodTube_modal_answer'>
+									<div class='goodTube_modal_answerInner'>
+										New features:<br>
+										<ul class='goodTube_list'>
+											<li>Remove "who's still listening in 2025" style comments (optional)</li>
+											<li>Faster loading speed</li>
+											<li>Improved privacy and security</li>
+										</ul>
+										<br>
+										Upcoming new features:<br>
+										<ul class='goodTube_list'>
+											<li>Automatically set video quality to highest / lowest / whatever you want</li>
+											<li>Always start in theater mode</li>
+											<li>Remove all AI related stuff</li>
+											<li>Support for transcripts</li>
+											<li>Fixed shuffle and loop functionality for playlists</li>
+											<li>And more over time</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class='goodTube_modal_faq' data-open='false'>
+								<div class='goodTube_modal_question'>
+									<div class='goodTube_modal_question_text'>Does the extension cost anything?</div>
+									<div class='goodTube_modal_question_arrow'></div>
+								</div>
+								<div class='goodTube_modal_answer'>
+									<div class='goodTube_modal_answerInner'>
+										The extension gives you a 7 day free trial. After that it costs $2, once only, for unlimited life time access on as many devices as you like.<br>
+										<br>
+										Please note that this existing free version is NOT being removed. You are welcome to continue to use it for as long as you like. Just remember that it is no longer being supported or updated.<br>
+										<br>
+										The decision to make this a paid extension has not come easily and I've tried to make it as cheap as possible. The priority remains keeping this adblocker available to <i>everyone</i>.<br>
+										<br>
+										With that in mind, I will give you free unlimited access:<br>
+										<ul class='goodTube_list'>
+											<li>If you cannot afford this due to your financial or political situation.</li>
+											<li>If you're one of the amazing people who donated to this project previously (THANK YOU so much for your support!!)</li>
+										</ul>
+										<br>
+										Please send an email to <a href='mailto:goodtube4u@gmail.com'>goodtube4u@gmail.com</a> to request free access.
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class='goodTube_buttons'>
+						<a href='https://chromewebstore.google.com/detail/goodtube-adblock-for-yout/mnlobacbpcnaibnhmfcpdfllcipgnfhe' class='goodTube_button' target='_blank'>Download from the Chrome Web Store (for most browsers)</a><br>
+						<br>
+						<a href='https://addons.mozilla.org/en-US/firefox/addon/goodtube-adblock-for-youtube/' class='goodTube_button' target='_blank'>Download for Firefox</a>
+					</div>
+					</div> <!-- .goodTube_content -->
+
 
 					<div class='goodTube_title'>Settings</div>
 					<div class='goodTube_content'>
@@ -2378,48 +2472,100 @@
 					</div> <!-- .goodTube_content -->
 
 
-					<div class='goodTube_title'>Make a donation <span class='goodTube_heart'>&#9829;</span></div>
-					<div class='goodTube_content'>
-						<div class='goodTube_donation'>
-							<div class="goodTube_text">
-								<strong>This adblocker is 100% free to use and always will be.<br>
-								It has helped over 185,000 people remove the unbearable ads from Youtube.</strong><br>
-								<br>
-								This project has been made entirely by myself, as just one developer. Countless hours and late nights have gone into making this and I continue to work on updating and maintaining the project regularly. I remain dedicated to ensuring this solution continues to work for everyone (despite Youtube's best efforts to stop adblockers).<br>
-								<br>
-								Donations help to keep this project going and support the wider community who use it. If you would like to say thank you and can give something back, it would be greatly appreciated.
-							</div>
-							<a href='https://tiptopjar.com/goodtube' target='_blank' rel='nofollow' class='goodTube_button'>Donate now</a>
-						</div> <!-- .goodTube_donation -->
-					</div> <!-- .goodTube_content -->
-
-
 					<div class='goodTube_title'>FAQs</div>
 					<div class='goodTube_content'>
 						<div class='goodTube_text'>
-							<strong>How can I share this with friends?</strong><br>
-							You can send them <a href='https://github.com/goodtube4u/goodtube' target='_blank'>this link</a>. It has all of the install instructions.<br>
-							<br>
-							<strong>Do I need to manually update this?</strong><br>
-							Nope, updates are pushed to you automatically so you don't have to do anything to use the latest version.<br>
-							<br>
-							<strong>I'm seeing a black square with no video</strong><br>
-							Try uninstalling both Tampermonkey and GoodTube and then reinstalling them. Most of the time this will resolve the issue. It's caused by a known bug in Chrome browsers, which hopefully they fix soon. If that doesn't work, you may have a conflicting extension. Try turning off your other extensions for a second, see if that works. Then turn them back on one at a time until you work out which one is causing the problem.<br>
-							<br>
-							<strong>Playlists skip to the next video every few seconds</strong><br>
-							This is usually caused by another adblocker which Youtube is detecting. To fix this problem, first disable all of your other adblockers (for Youtube only, you can leave them on for other websites). Then clear your cookies and cache (this is important). Once that's done, refresh Youtube and the problem should be fixed.<br>
-							<br>
-							<strong>I can't use the miniplayer</strong><br>
-							The Youtube miniplayer is not supported. Instead this uses "Picture in Picture" mode, which is the new standard for the web. Unfortunately Firefox does not support the Picture in Picture API, so the button is disabled in Firefox until they decide to include this feature.<br>
-							<br>
-							<strong>Transcripts are not working</strong><br>
-							Unfortunately transcripts are currently not supported. I'm working on this, hang tight. Hopefully these will be added soon!<br>
-							<br>
-							<strong>Is this compatible with other Youtube extensions?</strong><br>
-							Short answer - probably not. This heavily modifies how Youtube works in order to block ads. A key part of this is replacing the default Youtube player with their "embedded" player. This means that unless your extension also works for embedded Youtube videos (like where you view a Youtube video on another website), it generally won't be compatible. Unfortunately there's not much I can do to support these extensions as a result. Honestly though - you probably never needed them anyway, just play the video and be happy.<br>
-							<br>
-							<strong>I'm having a different problem</strong><br>
-							If you're having a different issue, most of the time you will find it's caused by a conflicting extension you have installed. The first thing to do is turn off all other extensions you have installed. Leave only Tampermonkey and GoodTube enabled. Then refresh Youtube, check if the problem is fixed. If it is, then you know one of them is causing the issue. Turn your other extensions back on back on one at a time until you find the problem.
+							<div class='goodTube_modal_faq' data-open='false'>
+								<div class='goodTube_modal_question'>
+									<div class='goodTube_modal_question_text'>How can I share this with friends?</div>
+									<div class='goodTube_modal_question_arrow'></div>
+								</div>
+								<div class='goodTube_modal_answer'>
+									<div class='goodTube_modal_answerInner'>
+										You can send them <a href='https://github.com/goodtube4u/goodtube' target='_blank'>this link</a>. It has all of the install instructions.
+									</div>
+								</div>
+							</div>
+
+							<div class='goodTube_modal_faq' data-open='false'>
+								<div class='goodTube_modal_question'>
+									<div class='goodTube_modal_question_text'>I'm seeing a black square with no video</div>
+									<div class='goodTube_modal_question_arrow'></div>
+								</div>
+								<div class='goodTube_modal_answer'>
+									<div class='goodTube_modal_answerInner'>
+										Try uninstalling both Tampermonkey and GoodTube and then reinstalling them. Most of the time this will resolve the issue. If that doesn't work, you may have a conflicting extension. Try turning off your other extensions for a second, see if that works. Then turn them back on one at a time until you work out which one is causing the problem.
+									</div>
+								</div>
+							</div>
+
+							<div class='goodTube_modal_faq' data-open='false'>
+								<div class='goodTube_modal_question'>
+									<div class='goodTube_modal_question_text'>Playlists skip to the next video every few seconds</div>
+									<div class='goodTube_modal_question_arrow'></div>
+								</div>
+								<div class='goodTube_modal_answer'>
+									<div class='goodTube_modal_answerInner'>
+										This is usually caused by another adblocker which Youtube is detecting. To fix this problem, first disable all of your other adblockers (for Youtube only, you can leave them on for other websites). Then clear your cookies and cache (this is important). Once that's done, refresh Youtube and the problem should be fixed.
+									</div>
+								</div>
+							</div>
+
+							<div class='goodTube_modal_faq' data-open='false'>
+								<div class='goodTube_modal_question'>
+									<div class='goodTube_modal_question_text'>I can't use the miniplayer</div>
+									<div class='goodTube_modal_question_arrow'></div>
+								</div>
+								<div class='goodTube_modal_answer'>
+									<div class='goodTube_modal_answerInner'>
+										The Youtube miniplayer is not supported. Instead this uses "Picture in Picture" mode, which is the new standard for the web.
+									</div>
+								</div>
+							</div>
+
+							<div class='goodTube_modal_faq' data-open='false'>
+								<div class='goodTube_modal_question'>
+									<div class='goodTube_modal_question_text'>Transcripts are not working</div>
+									<div class='goodTube_modal_question_arrow'></div>
+								</div>
+								<div class='goodTube_modal_answer'>
+									<div class='goodTube_modal_answerInner'>
+										Unfortunately transcripts are currently not supported. I'm working on this, hang tight. Hopefully these will be added soon!
+									</div>
+								</div>
+							</div>
+
+							<div class='goodTube_modal_faq' data-open='false'>
+								<div class='goodTube_modal_question'>
+									<div class='goodTube_modal_question_text'>Is this compatible with other Youtube extensions?</div>
+									<div class='goodTube_modal_question_arrow'></div>
+								</div>
+								<div class='goodTube_modal_answer'>
+									<div class='goodTube_modal_answerInner'>
+										Probably not if they change the main video player, but otherwise they should work fine.<br>
+										<br>
+										This heavily modifies how Youtube works in order to block ads. A key part of this is replacing the default Youtube player with their "embedded" player. This means that unless your extension also works for embedded Youtube videos (like where you view a Youtube video on another website), it generally won't be compatible.<br>
+										<br>
+										Unfortunately there's not much I can do to support these extensions as a result.
+									</div>
+								</div>
+							</div>
+
+							<div class='goodTube_modal_faq' data-open='false'>
+								<div class='goodTube_modal_question'>
+									<div class='goodTube_modal_question_text'>I'm having a different problem</div>
+									<div class='goodTube_modal_question_arrow'></div>
+								</div>
+								<div class='goodTube_modal_answer'>
+									<div class='goodTube_modal_answerInner'>
+										If you're having a different issue, most of the time you will find it's caused by a conflicting extension you have installed.<br>
+										<br>
+										To test this, first turn off all other extensions you have installed. Leave only GoodTube enabled.<br>
+										<br>
+										Then refresh Youtube and check if the problem is fixed. If it is, then you know one of them is causing the issue. Turn your other extensions back on one at a time until you find the problem.
+									</div>
+								</div>
+							</div>
 						</div>
 					</div> <!-- .goodTube_content -->
 
@@ -2452,8 +2598,8 @@
 			.goodTube_menuButton {
 				display: block;
 				position: fixed;
-				bottom: 16px;
-				right: 16px;
+				bottom: 26px;
+				right: 21px;
 				background: #0f0f0f;
 				border-radius: 9999px;
 				box-shadow: 0 0 10px rgba(0, 0, 0, .5);
@@ -2463,6 +2609,23 @@
 				transition: background .2s linear, opacity .2s linear, box-shadow .2s linear;
 				opacity: 1;
 				cursor: pointer;
+			}
+
+			.goodTube_menuButton .goodTube_notice {
+				background: #e84a82;
+				color: #ffffff;
+				font-size: 11px;
+				font-weight: 500;
+				padding-left: 8px;
+				padding-right: 8px;
+				padding-top: 4px;
+				padding-bottom: 4px;
+				border-radius: 4px;
+				position: absolute;
+				bottom: -14px;
+				left: -10px;
+				text-align: center;
+				z-index: 1;
 			}
 
 			.goodTube_menuButton img {
@@ -2535,7 +2698,7 @@
 			.goodTube_menuClose {
 				display: block;
 				position: fixed;
-				bottom: 51px;
+				bottom: 60px;
 				right: 16px;
 				width: 14px;
 				height: 14px;
@@ -2643,18 +2806,15 @@
 				font-weight: 700;
 				font-size: 22px;
 				padding-bottom: 16px;
+				line-height: 32px;
 			}
 
 			.goodTube_modal .goodTube_content {
-				padding-bottom: 24px;
-				border-bottom: 1px solid #eeeeee;
-				margin-bottom: 24px;
-			}
+				margin-bottom: 48px;
 
-			.goodTube_modal .goodTube_content:last-child {
-				border-bottom: 0;
-				margin-bottom: 0;
-				padding-bottom: 0;
+				&:last-child {
+					margin-bottom: 0;
+				}
 			}
 
 			.goodTube_modal .goodTube_content .goodTube_setting {
@@ -2701,6 +2861,26 @@
 				color: #000000;
 				font-weight: 500;
 				cursor: pointer;
+			}
+
+			.goodTube_modal .goodTube_buttons {
+				margin-bottom: 24px;
+			}
+
+			.goodTube_modal .goodTube_list {
+				list-style-type: disc;
+				list-style-position: inside;
+				margin-top: 8px;
+				width: 100%;
+				margin-left: 16px;
+
+				li {
+					margin-bottom: 8px;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
 			}
 
 			.goodTube_modal .goodTube_button {
@@ -2793,6 +2973,94 @@
 				margin-bottom: 16px;
 				height: 128px;
 			}
+
+
+
+			.goodTube_modal_faq {
+				display: flex;
+				flex-wrap: wrap;
+				width: 100%;
+				padding-right: 8px;
+				border-bottom: 1px solid #eeeeee;
+
+				&:first-child {
+					border-top: 1px solid #eeeeee;
+				}
+
+				/* Question */
+				.goodTube_modal_question {
+					display: flex;
+					flex-wrap: nowrap;
+					gap: 16px;
+					width: 100%;
+					padding-top: 16px;
+					padding-bottom: 16px;
+					transition: color .2s linear;
+					cursor: pointer;
+
+					.goodTube_modal_question_text {
+						width: 100%;
+						font-weight: 700;
+					}
+
+					.goodTube_modal_question_arrow {
+						position: relative;
+						top: 4px;
+						transform: rotate(45deg);
+						box-sizing: border-box;
+						width: 8px;
+						height: 8px;
+						border-color: #808080;
+						border-style: solid;
+						border-width: 0px 2px 2px 0px;
+						transition: transform .2s ease, top .2s ease, border-color .2s linear;
+					}
+
+					&:hover {
+						color: #e84a82;
+
+						.goodTube_modal_question_arrow {
+							border-color: #e84a82;
+						}
+					}
+				}
+
+				/* Answer */
+				.goodTube_modal_answer {
+					display: grid;
+					grid-template-rows: 0fr;
+					margin-top: -4px;
+					transition: grid-template-rows .4s ease;
+
+					.goodTube_modal_answerInner {
+						overflow: hidden;
+						padding-bottom: 0;
+						opacity: 0;
+						transition: opacity .4s ease, padding-bottom .4s ease;
+					}
+				}
+
+				/* Open State */
+				&[data-open="true"] {
+					.goodTube_modal_question {
+						.goodTube_modal_question_arrow {
+							top: 7px;
+							transform: rotate(225deg);
+						}
+					}
+
+					.goodTube_modal_answer {
+						grid-template-rows: 1fr;
+
+						.goodTube_modal_answerInner {
+							padding-bottom: 20px;
+							opacity: 1;
+						}
+					}
+				}
+			}
+
+
 		`;
 		document.head.appendChild(style);
 
@@ -3002,6 +3270,32 @@
 				window.location.href = window.location.href;
 			});
 		}
+
+
+
+		/* FAQs
+		-------------------------------------------------- */
+		const faqButtons = document.querySelectorAll('.goodTube_modal_question');
+		faqButtons.forEach(button => {
+			button.addEventListener('click', (event) => {
+				// Target the faq
+				const faq = event.currentTarget.closest('.goodTube_modal_faq');
+
+				// If the faq is already open
+				if (faq.getAttribute('data-open') === 'true') {
+					// Close it
+					faq.setAttribute('data-open', 'false');
+				}
+				// Otherwise, the faq is not already open
+				else {
+					// Deselect the currently opened answer (if it exists)
+					document.querySelector('.goodTube_modal_faq[data-open="true"]')?.setAttribute('data-open', 'false');
+
+					// Open the faq
+					faq.setAttribute('data-open', 'true');
+				}
+			});
+		});
 
 
 		/* Report an issue
