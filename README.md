@@ -82,7 +82,7 @@ Yes it does! Making this an extension has allowed me to finally use a normal ext
 
 The extension gives you a 7 day free trial. After that it costs $2, once only, for unlimited life time access on as many devices as you like.
 
-Please note that the existing free version is NOT being removed. You are welcome to continue to use it for as long as you like. Just remember that it is no longer supported or being updated.
+Please note that the existing free version is NOT being removed. You are welcome to continue to use it for as long as you like. Just remember that it is no longer being supported or updated.
 
 The decision to make this a paid extension has not come easily and I've tried to make it as cheap as possible. The priority remains keeping this adblocker available to <i>everyone</i>.
 
