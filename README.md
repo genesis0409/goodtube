@@ -66,7 +66,7 @@ I would like to say a huge THANK YOU to everyone who has been a part of this pro
 
 Over the last few months, I've been working hard on turning this into an official browser extension. This has not been an easy task...I've spent a lot of late nights coding, trying different things until, finally, everything came together.
 
-⭐⭐ *I'm very happy to announce that the official GoodTube Browser Extension has now been released!!*  ⭐⭐
+⭐ *I'm very happy to announce that the official GoodTube Browser Extension has now been released!!* ⭐
 
 
 #### Additional information -
@@ -75,22 +75,39 @@ Over the last few months, I've been working hard on turning this into an officia
 
 Please change over to using the official extension before support ends. Don't forget to remove the old Tampermonkey version once you've swapped over.
 
-**2. Does the extension remove the annoying circle icon from the bottom right of Youtube?**
+**2. Does the extension remove the settings menu icon?**
 
-Yes it does! Making this an extension has allowed me to finally use a normal extension menu, which is hidden until you click on the extension at the top of your browser. Sorry that little settings icon has been so annoying everyone. Until now I've had no other way to provide a settings menu.
+Yes it does! Making this an extension allows me to use a normal extension menu (hidden until you click on it at the top of your browser).
+
+With the older version, unfortunately I have no other way to provide a settings menu. Sorry it's been so annoying having it down the bottom all the time!
 
 
-**3. Does the extension cost anything?**
+**3. What are the new features?**
+
+New features:
+- Remove "who's still listening in 2025" style comments (optional)
+- Faster loading speed
+- Improved privacy and security
+
+Upcoming new features:
+- Automatically set video quality to highest / lowest / whatever you want
+- Always start in theater mode
+- Remove all AI related stuff
+- Support for transcripts
+- Fixed shuffle and loop functionality for playlists
+- And more over time
+
+**4. Does the extension cost anything?**
 
 The extension gives you a 7 day free trial. After that it costs $2, once only, for unlimited life time access on as many devices as you like.
 
 Please note that the existing free version is NOT being removed. You are welcome to continue to use it for as long as you like. Just remember that it is no longer being supported or updated.
 
-The decision to make this a paid extension has not come easily and I've tried to make it as cheap as possible. The priority remains keeping this adblocker available to <i>everyone</i>.
+The decision to make this a paid extension has not come easily and I've tried to make it as cheap as possible. The priority remains keeping this adblocker available to everyone.
 
-With that in mind, I will give free unlimited access -
+With that in mind, I will give you free unlimited access:
 - If you cannot afford this due to your financial or political situation.
-- If you're one of the amazing people who donated to this project previously (THANK YOU so much for your support, every donation I received has meant the world to me over the last year!!)
+- If you're one of the amazing people who donated to this project previously (THANK YOU so much for your support!!)
 
 Please send an email to goodtube4u@gmail.com to request free access.
 
