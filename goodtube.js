@@ -1834,8 +1834,23 @@
 			return;
 		}
 
-		// Go to the next video using the keyboard shortcut (evades detection)
-		goodTube_helper_shortcut('next');
+		// Firefox
+		if (navigator.userAgent.toLowerCase().indexOf('firefox') !== -1) {
+			if (goodTube_tabInFocus) {
+				goodTube_helper_shortcut('next');
+			}
+			else {
+				goodTube_page_api = document.getElementById('movie_player');
+				if (goodTube_page_api && typeof goodTube_page_api.nextVideo === 'function') {
+					goodTube_page_api.nextVideo();
+				}
+			}
+		}
+		// Chrome
+		else {
+			// Go to the next video using the keyboard shortcut (evades detection)
+			goodTube_helper_shortcut('next');
+		}
 
 		// Debug message
 		console.log('[GoodTube] Playing next video...');
@@ -4711,54 +4726,25 @@
 			return;
 		}
 
-		// When the video ends
-		videoElement.addEventListener('ended', function () {
-			// Version conflict check
-			if (goodTube_versionConflict) {
-				return;
-			}
+		// When the video is paused
+		videoElement.removeEventListener('pause', goodTube_iframe_videoEnded);
+		videoElement.addEventListener('pause', goodTube_iframe_videoEnded);
+	}
 
+	function goodTube_iframe_videoEnded() {
+		// Check if it's ended (sometimes the ended event listener does not fire, this is a Youtube embed bug...)
+		if (document.querySelector('.ended-mode')) {
 			// Sync the main player, this ensures videos register as finished with the little red play bars
 			goodTube_iframe_syncMainPlayer(true);
 
+			console.log('video ended - calling next from iframe');
+
 			// Tell the top frame the video ended
 			window.top.postMessage('goodTube_videoEnded', '*');
-		});
-
-		// When the video is paused
-		videoElement.addEventListener('pause', function () {
-			// Version conflict check
-			if (goodTube_versionConflict) {
-				return;
-			}
-
-			// Check if it's ended (sometimes the ended event listener does not fire, this is a Youtube embed bug...)
-			if (document.querySelector('.ended-mode')) {
-				// Sync the main player, this ensures videos register as finished with the little red play bars
-				goodTube_iframe_syncMainPlayer(true);
-
-				// Tell the top frame the video ended
-				window.top.postMessage('goodTube_videoEnded', '*');
-			}
-		});
-
-		// When the video is seeked
-		videoElement.addEventListener('seeked', function () {
-			// Version conflict check
-			if (goodTube_versionConflict) {
-				return;
-			}
-
-			// Check if it's ended (sometimes the ended event listener does not fire, this is a Youtube embed bug...)
-			if (document.querySelector('.ended-mode')) {
-				// Sync the main player, this ensures videos register as finished with the little red play bars
-				goodTube_iframe_syncMainPlayer(true);
-
-				// Tell the top frame the video ended
-				window.top.postMessage('goodTube_videoEnded', '*');
-			}
-		});
+		}
 	}
+
+
 
 	// Add keyboard shortcuts
 	function goodTube_iframe_addKeyboardShortcuts() {
@@ -6006,15 +5992,15 @@
 		}
 
 		goodTube_youtubeIframe = document.createElement('iframe');
-		youtubeIframe.setAttribute('width', '100%');
-		youtubeIframe.setAttribute('height', '100%');
-		youtubeIframe.setAttribute('frameborder', '0');
-		youtubeIframe.setAttribute('scrolling', 'yes');
-		youtubeIframe.setAttribute('allow', 'accelerometer *; autoplay *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;');
-		youtubeIframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-		youtubeIframe.setAttribute('allowfullscreen', true);
-		youtubeIframe.setAttribute('id', 'goodTube_youtube_iframe');
-		document.body.appendChild(youtubeIframe);
+		goodTube_youtubeIframe.setAttribute('width', '100%');
+		goodTube_youtubeIframe.setAttribute('height', '100%');
+		goodTube_youtubeIframe.setAttribute('frameborder', '0');
+		goodTube_youtubeIframe.setAttribute('scrolling', 'yes');
+		goodTube_youtubeIframe.setAttribute('allow', 'accelerometer *; autoplay *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;');
+		goodTube_youtubeIframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+		goodTube_youtubeIframe.setAttribute('allowfullscreen', true);
+		goodTube_youtubeIframe.setAttribute('id', 'goodTube_youtube_iframe');
+		document.body.appendChild(goodTube_youtubeIframe);
 	}
 
 	// Receive a message from the parent window
