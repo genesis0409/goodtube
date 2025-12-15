@@ -258,6 +258,9 @@
 	// A reference to our player's wrapper
 	let goodTube_playerWrapper = false;
 
+	// A reference to the youtube iframe
+	let goodTube_youtubeIframe = false;
+
 	// A reference to our player's iframe
 	let goodTube_player = false;
 
@@ -395,10 +398,60 @@
 	let goodTube_getParams = goodTube_helper_setupGetParams();
 
 
+
+	/* Version conflict check
+	------------------------------------------------------------------------------------------ */
+	let goodTube_versionConflict = false;
+
+	function goodTube_checkVersionConflict() {
+		if (!goodTube_versionConflict) {
+			const settingsElement = document.getElementById('goodTube_settings');
+
+			if (settingsElement) {
+				goodTube_versionConflict = true;
+
+				if (goodTube_playerWrapper) {
+					goodTube_playerWrapper.remove();
+				}
+
+				if (goodTube_player) {
+					goodTube_player.remove();
+				}
+
+				if (goodTube_youtubeIframe) {
+					goodTube_player.remove();
+				}
+
+				let menuButton = document.querySelector('.goodTube_menuButton');
+				if (menuButton) {
+					menuButton.remove();
+				}
+
+				let menuButtonClose = document.querySelector('.goodTube_menuClose');
+				if (menuButtonClose) {
+					menuButtonClose.remove();
+				}
+
+				if (window.top === window.self) {
+					alert("Oops! Looks like you're using the old and new version of GoodTube at the same time! Please remove the old version (or things may not work properly).")
+				}
+			}
+		}
+	}
+
+	setInterval(goodTube_checkVersionConflict, 0);
+
+
+
 	/* Youtube functions
 	------------------------------------------------------------------------------------------ */
 	// Hide page elements
 	function goodTube_youtube_hidePageElements() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Hide ads
 		let cssOutput = `
 			.ytd-search ytd-shelf-renderer,
@@ -594,6 +647,11 @@
 
 	// Hide members only videos
 	function goodTube_youtube_hideMembersOnlyVideos() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		let videos = document.querySelectorAll('ytd-rich-item-renderer:not(.goodTube_checked)');
 		videos.forEach((element) => {
 			if (element.innerHTML.toLowerCase().indexOf('members only') !== -1) {
@@ -607,6 +665,11 @@
 
 	// Hide shorts (real time)
 	function goodTube_youtube_hideShortsRealTime() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If shorts are enabled, don't do anything
 		if (goodTube_shorts === 'true') {
 			return;
@@ -643,6 +706,11 @@
 
 	// Support timestamp links in comments
 	function goodTube_youtube_timestampLinks() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Links in video description and comments
 		let timestampLinks = document.querySelectorAll('#description a, ytd-comments .yt-core-attributed-string a, ytm-expandable-video-description-body-renderer a, .comment-content a');
 
@@ -654,6 +722,11 @@
 
 				// Add the event listener to send our player to the correct time
 				element.addEventListener('click', function () {
+					// Version conflict check
+					if (goodTube_versionConflict) {
+						return;
+					}
+
 					// Define the time to skip to
 					let time = 0;
 
@@ -673,6 +746,11 @@
 	// Mute and pause all Youtube videos
 	let goodTube_youtube_pauseMuteVideos_timeout = setTimeout(() => {}, 0);
 	function goodTube_youtube_pauseMuteVideos() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// IF if shorts are enabled and we're viewing a short
 		if (goodTube_shorts === 'true' && window.location.href.indexOf('/shorts') !== -1) {
 			// Clear timeout first to solve memory leak issues
@@ -740,6 +818,11 @@
 
 	// Turn off autoplay
 	function goodTube_youtube_turnOffAutoplay() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If we've already turned off autoplay, just return
 		if (goodTube_turnedOffAutoplay) {
 			return;
@@ -762,6 +845,11 @@
 
 	// Remove the "are you still watching" popup
 	function goodTube_youtube_removeAreYouStillWatchingPopup() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Get all the dialogue boxes
 		let dialogueBoxes = document.querySelectorAll('yt-confirm-dialog-renderer');
 
@@ -783,6 +871,11 @@
 
 	// Set the video aspect ratio
 	function goodTube_youtube_setAspectRatio(widthRatio, heightRatio) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Make sure we've been passed valid data
 		if (!widthRatio || !heightRatio) {
 			return;
@@ -801,6 +894,11 @@
 
 	// Unset the video aspect ratio
 	function goodTube_youtube_unsetAspectRatio() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Target the aspect ratio element with the CSS variables
 		let variableElement = document.querySelector('ytd-watch-flexy');
 
@@ -818,6 +916,11 @@
 	// Init player
 	let goodTube_player_init_timeout = setTimeout(() => {}, 0);
 	function goodTube_player_init() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Get the page API
 		goodTube_page_api = document.getElementById('movie_player');
 
@@ -913,6 +1016,11 @@
 	// Position and size the player
 	let goodTube_clearedPlayer = false;
 	function goodTube_player_positionAndSize() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If the "hide and mute ads" fallback is inactive
 		if (goodTube_fallback) {
 			if (!goodTube_clearedPlayer) {
@@ -968,6 +1076,11 @@
 
 	// Populate the playlist info
 	function goodTube_player_populatePlaylistInfo() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Create a variable to hold the playlist items
 		let playlist = [];
 
@@ -1028,6 +1141,11 @@
 	// Load a video
 	let goodTube_player_load_timeout = setTimeout(() => {}, 0);
 	function goodTube_player_load() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Reset the "hide and mute ads" state (this ensures the fallback will refresh for each new video)
 		goodTube_hideAndMuteAds_state = '';
 
@@ -1097,6 +1215,11 @@
 	// Sync the starting time
 	let goodTube_player_syncStartingTime_timeout = setTimeout(() => {}, 0);
 	function goodTube_player_syncStartingTime() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Make sure the player iframe has loaded
 		if (!goodTube_playerIframeLoaded) {
 			// Clear timeout first to solve memory leak issues
@@ -1146,6 +1269,11 @@
 
 	// Clear and hide the player
 	function goodTube_player_clear(fallbackActive = false) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If we're not in picture in picture mode
 		if (!goodTube_pip) {
 			// Clear the "hide and mute ads" fallback
@@ -1173,17 +1301,32 @@
 
 	// Skip to time
 	function goodTube_player_skipTo(time, videoId = '') {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		goodTube_player.contentWindow.postMessage('goodTube_skipTo_' + time + '|||' + videoId, '*');
 	}
 
 	// Pause
 	function goodTube_player_pause() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		goodTube_player.contentWindow.postMessage('goodTube_pause', '*');
 	}
 
 	// Play
 	let goodTube_player_play_timeout = setTimeout(() => {}, 0);
 	function goodTube_player_play() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If the tab isn't in focus OR our player hasn't loaded
 		if (!goodTube_tabInFocus || !goodTube_playerIframeLoaded) {
 			// Clear timeout first to solve memory leak issues
@@ -1244,6 +1387,11 @@
 
 	// Show or hide the previous button
 	function goodTube_player_showHidePrevButton() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If we're viewing a playlist
 		if (goodTube_playlist.length > 0) {
 			// Enable the previous button
@@ -1261,6 +1409,11 @@
 	------------------------------------------------------------------------------------------ */
 	// Add keyboard shortcuts
 	function goodTube_shortcuts_init() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Add event listeners
 		document.addEventListener('keydown', goodTube_shortcuts_keypress, true);
 		document.addEventListener('keyup', goodTube_shortcuts_keypress, true);
@@ -1268,6 +1421,11 @@
 
 	// Define the keypress function for the event listeners
 	function goodTube_shortcuts_keypress(event) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If we're not watching a video OR the "hide and mute ads" fallback is active
 		if (!goodTube_helper_watchingVideo() || goodTube_fallback) {
 			// Don't do anything
@@ -1671,6 +1829,11 @@
 	------------------------------------------------------------------------------------------ */
 	// Play the next video
 	function goodTube_nav_next() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Go to the next video using the keyboard shortcut (evades detection)
 		goodTube_helper_shortcut('next');
 
@@ -1680,6 +1843,11 @@
 
 	// Play the previous video
 	function goodTube_nav_prev() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If we're viewing a playlist, and on the first item, go to the start of the track
 		if (goodTube_playlist.length > 0 && goodTube_playlistIndex === 0) {
 			// Go the the start of the video
@@ -1700,6 +1868,11 @@
 
 	// Video has ended
 	function goodTube_nav_videoEnded() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If autoplay is enabled
 		if (goodTube_autoplay === 'true') {
 			// Play the next video
@@ -1717,6 +1890,11 @@
 
 	// Show or hide the end screen (based on autoplay, not the setting)
 	function goodTube_nav_showHideEndScreen() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Show the end screen
 		let hideEndScreen = false;
 
@@ -1761,6 +1939,11 @@
 
 	// Count unique users
 	function goodTube_stats_user() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		/* Get today's date as yyyy-mm-dd (UTC time)
 		-------------------------------------------------- */
 		let date_local = new Date();
@@ -1805,6 +1988,11 @@
 
 	// Count videos played
 	function goodTube_stats_video() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		/* Videos played (combined total and daily)
 		-------------------------------------------------- */
 		// Count
@@ -1823,6 +2011,11 @@
 	let goodTube_initiated = false;
 	let goodTube_init_timeout = setTimeout(() => {}, 0);
 	function goodTube_init(retrying = false) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If we're not retrying
 		if (!retrying) {
 			// Debug message
@@ -1862,6 +2055,11 @@
 
 	// Init when DOM is ready
 	function goodTube_init_domReady() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Sanity check - only do this once (this fixes known load issues in Firefox)
 		if (goodTube_initiated) {
 			return;
@@ -1896,6 +2094,11 @@
 	// Listen for messages from the iframe
 	let goodTube_receiveMessage_timeout = setTimeout(() => {}, 0);
 	function goodTube_receiveMessage(event) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Make sure some data exists
 		if (typeof event.data !== 'string') {
 			return;
@@ -2112,6 +2315,11 @@
 
 	// Actions
 	function goodTube_actions() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Get the previous and current URL
 
 		// Remove hashes, these mess with things sometimes
@@ -2199,6 +2407,11 @@
 
 	// Init menu
 	function goodTube_menu() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Create the menu container
 		let menuContainer = document.createElement('div');
 
@@ -3074,6 +3287,11 @@
 		// Support the close button
 		if (menuClose) {
 			menuClose.addEventListener('click', () => {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				menuButton.remove();
 				menuClose.remove();
 			});
@@ -3090,6 +3308,11 @@
 		// Open the modal
 		if (menuButton) {
 			menuButton.addEventListener('click', () => {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				if (modal) {
 					// Reset the issue form
 					let goodTube_reportForm = document.querySelector('.goodTube_report');
@@ -3121,6 +3344,11 @@
 		// Close the modal
 		if (modalOverlay) {
 			modalOverlay.addEventListener('click', () => {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				if (modal && modal.classList.contains('visible')) {
 					modal.classList.remove('visible');
 				}
@@ -3129,6 +3357,11 @@
 
 		if (modalCloseButton) {
 			modalCloseButton.addEventListener('click', () => {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				if (modal && modal.classList.contains('visible')) {
 					modal.classList.remove('visible');
 				}
@@ -3136,6 +3369,11 @@
 		}
 
 		document.addEventListener('keydown', (event) => {
+			// Version conflict check
+			if (goodTube_versionConflict) {
+				return;
+			}
+
 			if (event.key.toLowerCase() === 'escape') {
 				if (modal && modal.classList.contains('visible')) {
 					modal.classList.remove('visible');
@@ -3150,6 +3388,11 @@
 
 		if (goodTube_button_saveSettings) {
 			goodTube_button_saveSettings.addEventListener('click', () => {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				// Shorts
 				let goodTube_setting_shorts = document.querySelector('.goodTube_option_shorts');
 				if (goodTube_setting_shorts) {
@@ -3278,6 +3521,11 @@
 		const faqButtons = document.querySelectorAll('.goodTube_modal_question');
 		faqButtons.forEach(button => {
 			button.addEventListener('click', (event) => {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				// Target the faq
 				const faq = event.currentTarget.closest('.goodTube_modal_faq');
 
@@ -3305,6 +3553,11 @@
 
 		if (goodTube_reportForm && goodTube_reportSuccessText) {
 			goodTube_reportForm.addEventListener('submit', (event) => {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				event.preventDefault();
 				event.stopImmediatePropagation();
 
@@ -3334,8 +3587,28 @@
 
 	// Check the tab focus state
 	function goodTube_checkTabFocus() {
-		window.addEventListener('focus', () => { goodTube_tabInFocus = true; });
-		window.addEventListener('blur', () => { goodTube_tabInFocus = false; });
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
+		window.addEventListener('focus', () => {
+			// Version conflict check
+			if (goodTube_versionConflict) {
+				return;
+			}
+
+			goodTube_tabInFocus = true;
+		});
+
+		window.addEventListener('blur', () => {
+			// Version conflict check
+			if (goodTube_versionConflict) {
+				return;
+			}
+
+			goodTube_tabInFocus = false;
+		});
 	}
 
 
@@ -3343,6 +3616,11 @@
 	------------------------------------------------------------------------------------------ */
 	// Init
 	function goodTube_hideAndMuteAdsFallback_init() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Style the overlay
 		let style = document.createElement('style');
 
@@ -3510,6 +3788,11 @@
 
 	// Check to enable or disable the overlay
 	function goodTube_hideAndMuteAdsFallback_check() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If the "hide and mute ads" fallback is active AND we're viewing a video
 		if (goodTube_fallback && goodTube_helper_watchingVideo()) {
 			// If ads are showing
@@ -3532,6 +3815,11 @@
 	// Enable the the overlay
 	let goodTube_hideAndMuteAds_state = '';
 	function goodTube_hideAndMuteAdsFallback_enable() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Only do this once (but trigger again if the overlay is gone)
 		let existingOverlay = document.getElementById('goodTube_hideMuteAdsOverlay');
 		if (goodTube_hideAndMuteAds_state === 'enabled' && existingOverlay) {
@@ -3606,6 +3894,11 @@
 
 	// Disable the overlay
 	function goodTube_hideAndMuteAdsFallback_disable() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Only do this once
 		if (goodTube_hideAndMuteAds_state === 'disabled') {
 			return;
@@ -3673,6 +3966,11 @@
 	// Init the autoplay actions to sync the embedded player and cookie with the normal button
 	let goodTube_hideAndMuteAdsFallback_autoPlay_init_timeout = setTimeout(() => {}, 0);
 	function goodTube_hideAndMuteAdsFallback_autoPlay_init() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Target the autoplay button
 		let autoplayButton = document.querySelector('#movie_player .ytp-autonav-toggle-button');
 
@@ -3680,6 +3978,11 @@
 		if (autoplayButton) {
 			// On click of the autoplay button
 			autoplayButton.addEventListener('click', () => {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				// Get the opposite value of the 'aria-checked' (youtube delays updating this so this is the fastest way to solve that...)
 				let oppositeValue = 'true';
 				if (autoplayButton.getAttribute('aria-checked') === 'true') {
@@ -3706,6 +4009,11 @@
 	// Sync autoplay
 	let goodTube_hideAndMuteAdsFallback_syncAutoplay_timeout = setTimeout(() => {}, 0);
 	function goodTube_hideAndMuteAdsFallback_syncAutoplay() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Target the autoplay button
 		let autoplayButton = document.querySelector('#movie_player .ytp-autonav-toggle-button');
 
@@ -3728,6 +4036,11 @@
 	// Play video
 	let goodTube_hideAndMuteAdsFallback_play_timeout = setTimeout(() => {}, 0);
 	function goodTube_hideAndMuteAdsFallback_play(mute = false) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Make sure that the "hide and mute ads" fallback is active AND we're viewing a video
 		if (!goodTube_fallback || !goodTube_helper_watchingVideo()) {
 			return;
@@ -3783,6 +4096,11 @@
 	let goodTube_iframe_initiated = false;
 	let goodTube_iframe_init_timeout = setTimeout(() => {}, 0);
 	function goodTube_iframe_init(retrying = false) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If we're not retrying
 		if (!retrying) {
 			// Listen for messages from the parent window
@@ -3814,6 +4132,11 @@
 	// Init when DOM is ready
 	let goodTube_iframe_init_domReady_timeout = setTimeout(() => {}, 0);
 	function goodTube_iframe_init_domReady() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Get the iframe API
 		goodTube_iframe_api = document.getElementById('movie_player');
 
@@ -3874,6 +4197,11 @@
 
 	// Actions
 	function goodTube_iframe_actions() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Check to see if the "hide and mute ads" fallback should be active
 		goodTube_iframe_hideMuteAdsFallback();
 
@@ -3895,6 +4223,11 @@
 
 	// Check to see if the "hide and mute ads" fallback should be active
 	function goodTube_iframe_hideMuteAdsFallback() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Check for an error
 		let errorExists = document.querySelector('.ytp-error');
 
@@ -3932,6 +4265,11 @@
 
 	// Restore playback speed, and update it if it changes
 	function goodTube_iframe_playbackSpeed() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Get the playback speed from the get variable
 		if (typeof goodTube_getParams['goodTube_playbackSpeed'] !== 'undefined') {
 			// Restore the playback speed
@@ -3942,6 +4280,11 @@
 
 		// Update the playback speed cookie in the top frame every 100ms
 		setInterval(() => {
+			// Version conflict check
+			if (goodTube_versionConflict) {
+				return;
+			}
+
 			if (goodTube_iframe_api && typeof goodTube_iframe_api.getPlaybackRate === 'function') {
 				// Tell the top frame to save the playback speed
 				window.top.postMessage('goodTube_playbackSpeed_' + goodTube_iframe_api.getPlaybackRate(), '*');
@@ -3951,11 +4294,21 @@
 
 	// Fix links (so they open in the same window)
 	function goodTube_iframe_fixLinks() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Get all the video links (info cards and suggested videos that display at the end)
 		let videoLinks = document.querySelectorAll('.ytp-videowall-still:not(.goodTube_fixed), .ytp-ce-covering-overlay:not(.goodTube_fixed)');
 		videoLinks.forEach(link => {
 			// Remove any event listeners that Youtube adds
 			link.addEventListener('click', (event) => {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				event.preventDefault();
 				event.stopImmediatePropagation();
 
@@ -3964,6 +4317,11 @@
 			}, true);
 
 			link.addEventListener('mousedown', (event) => {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				// Make sure this is the left mouse button
 				if (event.button !== 0) {
 					return;
@@ -3974,6 +4332,11 @@
 			}, true);
 
 			link.addEventListener('mouseup', (event) => {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				// Make sure this is the left mouse button
 				if (event.button !== 0) {
 					return;
@@ -3984,11 +4347,21 @@
 			}, true);
 
 			link.addEventListener('touchstart', (event) => {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				event.preventDefault();
 				event.stopImmediatePropagation();
 			}, true);
 
 			link.addEventListener('touchend', (event) => {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				event.preventDefault();
 				event.stopImmediatePropagation();
 			}, true);
@@ -4000,6 +4373,11 @@
 
 	// Style the iframe
 	function goodTube_iframe_style() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		let style = document.createElement('style');
 
 		let cssOutput = `
@@ -4170,6 +4548,11 @@
 
 	// Enable the previous button
 	function goodTube_iframe_enablePrevButton() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		let prevButton = document.querySelector('.ytp-prev-button');
 		if (prevButton && !prevButton.classList.contains('goodTube_visible')) {
 			prevButton.classList.add('goodTube_visible');
@@ -4178,6 +4561,11 @@
 
 	// Disable the previous button
 	function goodTube_iframe_disablePrevButton() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		let prevButton = document.querySelector('.ytp-prev-button');
 		if (prevButton && prevButton.classList.contains('goodTube_visible')) {
 			prevButton.classList.remove('goodTube_visible');
@@ -4187,6 +4575,11 @@
 	// Add custom buttons
 	let goodTube_iframe_addCustomButtons_timeout = setTimeout(() => {}, 0);
 	function goodTube_iframe_addCustomButtons() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Target the play button
 		let playButton = document.querySelector('.ytp-play-button');
 
@@ -4207,6 +4600,11 @@
 		if (prevButton) {
 			// Add actions
 			prevButton.addEventListener('click', function () {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				// Tell the top frame to go to the previous video
 				window.top.postMessage('goodTube_prevVideo', '*');
 			});
@@ -4218,6 +4616,11 @@
 		if (nextButton) {
 			// Add actions
 			nextButton.addEventListener('click', function () {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				// Tell the top frame to go to the next video
 				window.top.postMessage('goodTube_nextVideo', '*');
 			});
@@ -4239,6 +4642,11 @@
 
 			// Add actions
 			theaterButton.addEventListener('click', function () {
+				// Version conflict check
+				if (goodTube_versionConflict) {
+					return;
+				}
+
 				// Tell the top window to toggle theater mode
 				window.top.postMessage('goodTube_theater', '*');
 			});
@@ -4259,6 +4667,11 @@
 			let autoplayButton = document.querySelector('#goodTube_autoplayButton');
 			if (autoplayButton) {
 				autoplayButton.addEventListener('click', function () {
+					// Version conflict check
+					if (goodTube_versionConflict) {
+						return;
+					}
+
 					// Toggle the style of the autoplay button
 					let innerButton = autoplayButton.querySelector('.ytp-autonav-toggle-button');
 					let innerButtonState = innerButton.getAttribute('aria-checked');
@@ -4279,6 +4692,11 @@
 	// Add custom events
 	let goodTube_iframe_addCustomEvents_timeout = setTimeout(() => {}, 0);
 	function goodTube_iframe_addCustomEvents() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Target the video element
 		let videoElement = document.querySelector('#movie_player video');
 
@@ -4295,6 +4713,11 @@
 
 		// When the video ends
 		videoElement.addEventListener('ended', function () {
+			// Version conflict check
+			if (goodTube_versionConflict) {
+				return;
+			}
+
 			// Sync the main player, this ensures videos register as finished with the little red play bars
 			goodTube_iframe_syncMainPlayer(true);
 
@@ -4304,6 +4727,11 @@
 
 		// When the video is paused
 		videoElement.addEventListener('pause', function () {
+			// Version conflict check
+			if (goodTube_versionConflict) {
+				return;
+			}
+
 			// Check if it's ended (sometimes the ended event listener does not fire, this is a Youtube embed bug...)
 			if (document.querySelector('.ended-mode')) {
 				// Sync the main player, this ensures videos register as finished with the little red play bars
@@ -4316,6 +4744,11 @@
 
 		// When the video is seeked
 		videoElement.addEventListener('seeked', function () {
+			// Version conflict check
+			if (goodTube_versionConflict) {
+				return;
+			}
+
 			// Check if it's ended (sometimes the ended event listener does not fire, this is a Youtube embed bug...)
 			if (document.querySelector('.ended-mode')) {
 				// Sync the main player, this ensures videos register as finished with the little red play bars
@@ -4329,7 +4762,17 @@
 
 	// Add keyboard shortcuts
 	function goodTube_iframe_addKeyboardShortcuts() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		document.addEventListener('keydown', function (event) {
+			// Version conflict check
+			if (goodTube_versionConflict) {
+				return;
+			}
+
 			// Don't do anything if we're holding control OR alt OR the command key on mac OR the "hide and mute ads" fallback is active
 			if (event.ctrlKey || event.altKey || event.metaKey || goodTube_fallback) {
 				return;
@@ -4376,6 +4819,11 @@
 	let goodTube_iframe_supportDoubleSpeed_videoElement = document.querySelector('video');
 	let goodTube_iframe_supportDoubleSpeed_doubleSpeedElement = document.querySelector('.goodTube_doubleSpeed');
 	function goodTube_iframe_supportDoubleSpeed_keydown(event) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Get the key pressed (in lowercase)
 		let keyPressed = event.key.toLowerCase();
 
@@ -4439,6 +4887,11 @@
 	}
 
 	function goodTube_iframe_supportDoubleSpeed_keypress(event) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Get the key pressed (in lowercase)
 		let keyPressed = event.key.toLowerCase();
 
@@ -4468,6 +4921,11 @@
 	}
 
 	function goodTube_iframe_supportDoubleSpeed_keyup(event) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Get the key pressed (in lowercase)
 		let keyPressed = event.key.toLowerCase();
 
@@ -4528,6 +4986,11 @@
 	}
 
 	function goodTube_iframe_supportDoubleSpeed_mouseDownTouchStart(event) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Make sure this is the left mouse button
 		if (event.button !== 0) {
 			return;
@@ -4580,6 +5043,11 @@
 	}
 
 	function goodTube_iframe_supportDoubleSpeed_click(event) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If we're allowing the next click, don't do anything
 		if (goodTube_iframe_supportDoubleSpeed_allowNextClick) {
 			return;
@@ -4597,6 +5065,11 @@
 	}
 
 	function goodTube_iframe_supportDoubleSpeed_mouseUpTouchEnd(event) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Make sure this is the left mouse button
 		if (event.button !== 0) {
 			return;
@@ -4659,6 +5132,11 @@
 	}
 
 	function goodTube_iframe_supportDoubleSpeed_mouseOutTouchCancel(event) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If the "hide mute ads" fallback is active, don't do anything
 		if (goodTube_fallback) {
 			return;
@@ -4696,6 +5174,11 @@
 
 	let goodTube_iframe_supportDoubleSpeed_init_timeout = setTimeout(() => {}, 0);
 	function goodTube_iframe_supportDoubleSpeed_init() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		/* Make sure this is enabled
 		-------------------------------------------------- */
 		if (goodTube_getParams['goodTube_instantPause'] === 'true') {
@@ -4870,6 +5353,11 @@
 
 	// Load a video
 	function goodTube_iframe_loadVideo(videoId, startSeconds) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Get the iframe API
 		goodTube_iframe_api = document.getElementById('movie_player');
 
@@ -4891,6 +5379,11 @@
 	// Receive a message from the parent window
 	let goodTube_iframe_receiveMessage_timeout = setTimeout(() => {}, 0);
 	function goodTube_iframe_receiveMessage(event) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Make sure some data exists
 		if (typeof event.data !== 'string') {
 			return;
@@ -5056,6 +5549,11 @@
 	// Go fullscreen
 	let goodTube_iframe_fullscreen_timeout = setTimeout(() => {}, 0);
 	function goodTube_iframe_fullscreen() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Target the fullscreen button
 		let fullscreenButton = document.querySelector('.ytp-fullscreen-button');
 
@@ -5077,6 +5575,11 @@
 	// Set autoplay
 	let goodTube_iframe_setAutoplay_timeout = setTimeout(() => {}, 0);
 	function goodTube_iframe_setAutoplay(enabled) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Target the autoplay button
 		let autoplayButton = document.querySelector('#goodTube_autoplayButton');
 
@@ -5103,6 +5606,11 @@
 	// Skip to time
 	let goodTube_iframe_skipTo_timeout = setTimeout(() => {}, 0);
 	function goodTube_iframe_skipTo(time) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Target the video
 		let videoElement = document.querySelector('video');
 
@@ -5125,6 +5633,11 @@
 	// Pause
 	let goodTube_iframe_pause_timeout = setTimeout(() => {}, 0);
 	function goodTube_iframe_pause() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Target the video
 		let videoElement = document.querySelector('video');
 
@@ -5148,6 +5661,11 @@
 	// Mute
 	let goodTube_iframe_mute_timeout = setTimeout(() => {}, 0);
 	function goodTube_iframe_mute() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Target the video
 		let videoElement = document.querySelector('video');
 
@@ -5168,6 +5686,11 @@
 	// Unmute
 	let goodTube_iframe_unmute_timeout = setTimeout(() => {}, 0);
 	function goodTube_iframe_unmute() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Target the video
 		let videoElement = document.querySelector('video');
 
@@ -5188,6 +5711,11 @@
 	// Play
 	let goodTube_iframe_play_timeout = setTimeout(() => {}, 0);
 	function goodTube_iframe_play(videoId) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Re-fetch the iframe api
 		goodTube_iframe_api = document.getElementById('movie_player');
 
@@ -5226,6 +5754,11 @@
 
 	// Fix fullscreen button issues
 	function goodTube_iframe_fixFullScreenButton() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		let fullScreenButton = document.querySelector('.ytp-fullscreen-button');
 		if (fullScreenButton) {
 			fullScreenButton.setAttribute('aria-disabled', 'false');
@@ -5241,6 +5774,11 @@
 
 	// Sync the main player
 	function goodTube_iframe_syncMainPlayer(syncToEnd = false) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Target the video element
 		let videoElement = document.querySelector('video');
 
@@ -5261,8 +5799,18 @@
 
 	// Support picture in picture
 	function goodTube_iframe_pip() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// If we leave the picture in picture
 		addEventListener('leavepictureinpicture', (event) => {
+			// Version conflict check
+			if (goodTube_versionConflict) {
+				return;
+			}
+
 			goodTube_pip = false;
 
 			// Set the picture in picture state in the top window
@@ -5271,6 +5819,11 @@
 
 		// If we enter the picture in picture
 		addEventListener('enterpictureinpicture', (event) => {
+			// Version conflict check
+			if (goodTube_versionConflict) {
+				return;
+			}
+
 			goodTube_pip = true;
 
 			// Set the picture in picture state in the top window
@@ -5280,6 +5833,11 @@
 
 	// Enable picture in picture next and prev buttons
 	function goodTube_iframe_enablePipButtons() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		if ("mediaSession" in navigator) {
 			// Next video
 			navigator.mediaSession.setActionHandler("nexttrack", () => {
@@ -5297,6 +5855,11 @@
 
 	// Sync the aspect ratio
 	function goodTube_iframe_syncAspectRatio() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Target the video element
 		let videoElement = document.querySelector('video');
 
@@ -5329,6 +5892,11 @@
 	// Check for the "immersive translation" plugin
 	let goodTube_iframe_checkImmersiveTranslation_classAdded = false;
 	function goodTube_iframe_checkImmersiveTranslation() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		if (!goodTube_iframe_checkImmersiveTranslation_classAdded && document.querySelector('style[data-id^="immersive-translate"]')) {
 			document.body.classList.add('immersive-translation');
 			goodTube_iframe_checkImmersiveTranslation_classAdded = true;
@@ -5342,6 +5910,11 @@
 	let goodTube_proxyIframe_initiated = false;
 	let goodTube_proxyIframe_init_timeout = setTimeout(() => {}, 0);
 	function goodTube_proxyIframe_init() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Listen for messages from the parent window
 		window.addEventListener('message', goodTube_proxyIframe_receiveMessage);
 
@@ -5369,6 +5942,11 @@
 
 	// Init when DOM is ready
 	function goodTube_proxyIframe_init_domReady() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Sanity check - only do this once (this fixes known load issues in Firefox)
 		if (goodTube_proxyIframe_initiated) {
 			return;
@@ -5387,6 +5965,11 @@
 
 	// Style the proxy iframe
 	function goodTube_proxyIframe_style() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Hide the DOM elements from the proxy page
 		let style = document.createElement('style');
 		style.textContent = `
@@ -5417,7 +6000,12 @@
 
 	// Add the Youtube iframe
 	function goodTube_proxyIframe_addYoutubeIframe() {
-		let youtubeIframe = document.createElement('iframe');
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
+		goodTube_youtubeIframe = document.createElement('iframe');
 		youtubeIframe.setAttribute('width', '100%');
 		youtubeIframe.setAttribute('height', '100%');
 		youtubeIframe.setAttribute('frameborder', '0');
@@ -5432,6 +6020,11 @@
 	// Receive a message from the parent window
 	let goodTube_proxyIframe_receiveMessage_timeout = setTimeout(() => {}, 0);
 	function goodTube_proxyIframe_receiveMessage(event) {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Make sure some data exists
 		if (typeof event.data !== 'string') {
 			return;
@@ -5484,6 +6077,11 @@
 	/* Start GoodTube
 	------------------------------------------------------------------------------------------ */
 	function goodTube_start() {
+		// Version conflict check
+		if (goodTube_versionConflict) {
+			return;
+		}
+
 		// Youtube page
 		if (window.top === window.self && window.location.href.indexOf('youtube') !== -1) {
 			goodTube_init();
