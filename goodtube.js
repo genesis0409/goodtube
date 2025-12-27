@@ -420,7 +420,7 @@
 				}
 
 				if (window.top === window.self) {
-					alert("Oops! Looks like you're using the old and new version of GoodTube at the same time! Please remove the old version (or things may not work properly).")
+					alert("Oops! Looks like you're using the old and new version of GoodTube at the same time!\n\nPlease remove the old version (or things may not work properly).\n\nTo remove the old version, simply remove the Tampermonkey extension from your browser.\n\nAlternatively, if you want to keep Tampermonkey, simply remove the GoodTube userscript from within Tampermonkey.\n\nIf you have any issues or need help, please email goodtube4u@gmail.com")
 				}
 			}
 		}
